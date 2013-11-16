@@ -60,8 +60,9 @@ $(document).ready(function(){
         }
     }
     var fft2 = FFT.fft2d(canvas_in, 512, 512);
-
+    var ifft2 = FFT.ifft2d(fft2, 512, 512);
     var idata = ctx.createImageData(512, 512);
-    idata.data.set(format_image(fft2.i));
+    //idata.data.set(format_image(ifft2.r));
+    idata.data.set(format_image(canvas_in));
     ctx.putImageData(idata, 0, 0);
 });
